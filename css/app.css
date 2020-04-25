@@ -1,0 +1,84 @@
+body{
+	background-color: #cce5ff;
+}
+
+h1{
+	text-align: center;
+}
+
+#niveles{
+	background-color: #9eceff;
+	padding: 20px;
+	text-align: center;
+    margin: 10px 0px;
+}
+
+#niveles div{
+    display: inline-block; 
+    background-color: #cce5ff;
+    padding: 5px 10px;
+    margin: 0px 10px;
+    font-family: Arial;
+}
+
+#cronometro{
+    margin: 10px 0px;
+    text-align: center;
+    padding: 20px;
+}
+
+#tablero{
+    padding: 10px;
+}
+
+#puntajes{
+    text-align: center;
+    margin-top: 15px;
+    height: 50px;
+    width: 500px;
+    margin: 15px auto;
+    border: 2px outset grey;
+    border-radius: 5px;
+}
+
+.fila{
+    padding: 5px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 260px;
+}
+
+.columna{
+    display: inline-block;
+    background-color: #4272f5;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+
+#segundos{
+    font-size: 35px;
+    padding: 5px;
+}
+
+.boton{
+    display:inline-block;
+    position:relative;
+    padding: 0px 15px;
+    margin: 0px 10px;
+}
+
+.boton p{
+    font-family: Arial;
+}
+
+    
+.start{
+    background-color: #9ed9d1;
+}
+.reiniciar{
+    background-color: #9ed9d1;
+}
