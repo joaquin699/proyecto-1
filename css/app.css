@@ -1,19 +1,19 @@
 body{
-	background-color: #cce5ff;
+    background-color: #cce5ff;
 }
 
 h1{
-	text-align: center;
+    text-align: center;
 }
 
 #niveles{
-	background-color: #9eceff;
-	padding: 20px;
-	text-align: center;
+    background-color: #9eceff;
+    padding: 20px;
+    text-align: center;
     margin: 10px 0px;
 }
 
-#niveles div{
+.lvl{
     display: inline-block; 
     background-color: #cce5ff;
     padding: 5px 10px;
@@ -24,11 +24,13 @@ h1{
 #cronometro{
     margin: 10px 0px;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 #tablero{
+    position: relative;
     padding: 10px;
+
 }
 
 #puntajes{
@@ -45,7 +47,6 @@ h1{
     padding: 5px 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 260px;
 }
 
 .columna{
@@ -58,9 +59,16 @@ h1{
     width: 50px;
 }
 
+.columna img{
+    width: 50px;
+    height: 50px;
+}
+
 
 #segundos{
     font-size: 35px;
+    font-family: Verdana;
+    font-weight: 800;
     padding: 5px;
 }
 
@@ -81,4 +89,22 @@ h1{
 }
 .reiniciar{
     background-color: #9ed9d1;
+}
+
+#cuentaregresiva{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    width: 40%;
+    height: 100%;
+
+    margin: 0% 30% 0% 30%;
+
+    opacity: 0.8;
+    color: black;
+    font-size: 100px;  
 }

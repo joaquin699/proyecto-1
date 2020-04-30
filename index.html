@@ -17,22 +17,22 @@
 
     <div id="niveles"> 
         <h3>Niveles</h3>
-        <div onclick="seleccionarNivel(1)"> <b>Nivel 1 </b></div>
-        <div onclick="seleccionarNivel(2)"> <b>Nivel 2 </b></div>
+        <div class="lvl" onclick="seleccionarNivel(1)"> <b>Nivel 1</b></div>
+        <div class="lvl" onclick="seleccionarNivel(2)"> <b>Nivel 2</b></div>
     </div>
     
     <div id="cronometro">
-        <div id="segundos"> 0.00 </div>
-        <div class="boton start">
+        <div id="segundos">0.00</div>
+        <div class="boton start" onclick="comenzarJuego()">
             <p>Start</p>
         </div>
-        <div class="boton reiniciar">
-            <p>Retry</p>
+        <div class="boton reiniciar" onclick="reiniciar()">
+            <p>Restart</p>
         </div>  
     </div>
     
     <div id="tablero">
-         
+
     </div>
 
     <div id="puntajes">
