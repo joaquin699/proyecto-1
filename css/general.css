@@ -1,0 +1,152 @@
+@font-face{
+    font-family: "Gotham Bold";
+    src: url(../fuentes/GOTHAM-BOLD.TTF);
+}
+
+@font-face{
+    font-family: "Gotham Medium";
+    src: url(../fuentes/GOTHAM-MEDIUM.TTF);   
+}
+
+body{
+    background-image: url(../img/fondo.png);
+    font-family: "Gotham Bold";
+}
+
+#niveles{
+    padding: 20px;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+#niveles h3{
+    margin-top: 7px;
+
+}
+
+.lvl{
+    display: inline-block; 
+    padding: 7px 12px;
+    margin: 0px 10px;
+    border-radius: 7px;
+}
+
+#cronometro{
+    text-align: center;
+    padding: 7px 0px;
+}
+
+#tablero{
+    position: relative;
+    padding: 10px 0px;
+}
+
+.fila{
+    padding: 5px 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.columna{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin-left: 4px;
+    margin-right: 4px;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+}
+
+.columna img{
+    width: 50px;
+    height: 50px;
+}
+
+
+#segundos{
+    font-size: 35px;
+    padding: 5px;
+}
+
+.boton{
+    display:inline-block;
+    position:relative;
+    padding: 0px 12px;
+    margin: 0px 5px;
+    border-radius: 7px;
+    width: 68px;
+
+    font-size: 14px;
+}
+
+
+#cuentaregresiva{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    width: 40%;
+    height: 100%;
+
+    margin: 0% 30% 0% 30%;
+
+    opacity: 0.9;
+    color: white;
+    font-size: 100px;  
+    text-shadow: 2px 2px 5px red;
+}
+
+#puntajes h3{
+    margin: 5px;
+}
+
+#puntajes{
+    text-align: center;
+    margin-top: 15px;
+    width: 500px;
+    margin: 15px auto;
+    border: 2px outset grey;
+    border-radius: 5px;
+}
+
+#puntajes table{
+    margin-left: 122px;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+#puntajes table td:nth-child(1){
+    text-align: left;
+}
+
+td{
+    font-family: "Gotham Medium";
+    font-size: 15px;
+}
+
+.tiempos{
+    width: 100px;
+}
+
+.nombres{
+    width: 166px;
+    text-align: left;
+}
+
+.temas{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+
+#tema1{
+	background-color: grey;
+}
+
+#tema2{
+	background-color: blue;
+}

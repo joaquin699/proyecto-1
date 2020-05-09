@@ -1,123 +1,27 @@
-body{
-    background-color: #f8f8f8;
-}
-
 #niveles{
-    background-color: #eaeaea;
-    padding: 20px;
-    text-align: center;
-    margin: 10px 0px;
-}
-
-#niveles h3{
-    margin-top: 7px;
+    background-color: rgba(0,2,145,0.35);
 }
 
 .lvl{
-    display: inline-block; 
-    background-color: #cce5ff;
-    padding: 5px 10px;
-    margin: 0px 10px;
-    font-family: Arial;
+    background-color: rgba(0,2,145,0.4);
 }
 
-#cronometro{
-    margin: 10px 0px;
-    text-align: center;
-    padding: 10px;
-}
-
-#tablero{
-    position: relative;
-    padding: 10px;
-
-}
-
-.fila{
-    padding: 5px 20px;
-    margin-left: auto;
-    margin-right: auto;
+.lvl:hover{
+    background-color: rgb(200,200,200);
 }
 
 .columna{
-    display: inline-block;
-    background-color: #46a;
-    text-align: center;
-    margin-left: 5px;
-    margin-right: 5px;
-    height: 50px;
-    width: 50px;
-}
-
-.columna img{
-    width: 50px;
-    height: 50px;
-}
-
-
-#segundos{
-    font-size: 35px;
-    font-family: Verdana;
-    font-weight: 800;
-    padding: 5px;
+    background-color: #000291;
 }
 
 .boton{
-    display:inline-block;
-    position:relative;
-    padding: 0px 15px;
-    margin: 0px 10px;
+    background-color: #dadada;
 }
 
-.boton p{
-    font-family: Arial;
-}
-
-    
-.start{
-    background-color: #9ed9d1;
-}
-.reiniciar{
-    background-color: #9ed9d1;
-}
-
-#cuentaregresiva{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: absolute;
-    top: 5px;
-    left: 0px;
-    width: 40%;
-    height: 100%;
-
-    margin: 0% 30% 0% 30%;
-
-    opacity: 0.8;
-    color: black;
-    font-size: 100px;  
-}
-
-#puntajes h3{
-    margin: 5px;
+.boton:hover{
+    background-color: #bababa;
 }
 
 #puntajes{
-    text-align: center;
-    margin-top: 15px;
-    width: 500px;
-    margin: 15px auto;
-    border: 2px outset grey;
-    border-radius: 5px;
-}
-
-#puntajes table{
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5px;
-}
-
-.tiempos{
-    width: 200px;
+    background-color: rgba(163,164,255,0.39);
 }
