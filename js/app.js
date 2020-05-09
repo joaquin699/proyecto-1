@@ -24,6 +24,8 @@ var comparando = false;
 
 var parejas_encontradas;
 
+
+
 function init(){
 
     dimension = 4;
@@ -41,6 +43,8 @@ function init(){
 
     //Crea la tabla inicial. El nivel inicial por defecto es 1.
     crearTablero();
+
+    cargarPuntajes(1);
 }
 
 //Inicializa la variable imagenes con todas las imagenes de la carpeta img
@@ -93,7 +97,7 @@ function getRandomInt(min, max) {
 //Crea el tablero de juego que se va a utilizar de acuerdo al tamanio indicado en dimension.
 function crearTablero(){
 
-    var anchoFila = dimension * 60;
+    var anchoFila = dimension * 58;
     var tablero = document.getElementById("tablero");
     for (var f = 0; f < dimension; f++) {
         var fila = document.createElement("div");
@@ -109,13 +113,13 @@ function crearTablero(){
     }
 }
 
-
 function seleccionarNivel(nivel){
     dimension = 2*(nivel + 1);
     tablero = document.getElementById("tablero");
     imagenesTablero();
     vaciarTablero(tablero);
     crearTablero();
+    cargarPuntajes(nivel);
 }
 
 //Elimina todos los elementos HTML del subarbol con raiz element
@@ -269,7 +273,7 @@ function operar(element){
             div1 = document.getElementById("f"+fila_col[0]+"c"+fila_col[1]);
             div2 = document.getElementById("f"+ultima_seleccionada[0]+"c"+ultima_seleccionada[1]);
             
-            setTimeout(()=> mostrarOcultar(div1,div2,iguales),500);
+            setTimeout(()=> mostrarOcultar(div1,div2,iguales),350);
         }
     }  
 }
@@ -307,7 +311,7 @@ function terminar(){
     if (milesimas < 10){
         milAux="0" + milesimas;
     }
-    alert("Tu tiempo es: "+segundos+"."+milAux+ "segundos");
+    guardarPuntaje(segundos+"."+milAux);
 }
 
 //Detiene el cronometro
@@ -347,4 +351,73 @@ function reiniciar(){
     parejas_encontradas = 0;
 
     alert("reinicie");
+}
+
+//Se encarga de mostrar en pantalla los puntajes del nivel lvl
+function cargarPuntajes(lvl){
+    var puntaje;
+    var nombre;
+    var tiempo;
+
+    for(var i = 1; i<=5; i++){
+        puntaje = document.getElementById("p"+i);
+        
+        nombre = localStorage.getItem("lvl_"+lvl+"_nombre_"+i);
+        if(nombre != null){
+            tiempo = localStorage.getItem("lvl_"+lvl+"_tiempo_"+i);
+            puntaje.innerHTML = i + ". " + nombre ;
+            puntaje.nextSibling.innerHTML = tiempo + "\"";
+        }
+        else{
+            puntaje.innerHTML = i + ". ";
+            puntaje.nextSibling.innerHTML = "";
+        }
+    }
+
+    document.getElementById("titulo").innerHTML = " Puntajes mas altos: Nivel "+lvl+" ";
+}
+
+
+function guardarPuntaje(punt){
+    var nivel = dimension/2 - 1;
+    var pos = -1;
+    var aux;
+
+    for (var i = 5; i >= 1; i--) {
+        aux = localStorage.getItem("lvl_"+nivel+"_tiempo_"+i);
+        if(aux != null){
+            if(punt < aux){
+                pos = i;
+            }
+        }
+        else{
+            pos = i;
+        }
+    }
+
+    if(pos!= -1){
+        var nombre = "";
+        var opcion;
+        correrPuntajes(pos,nivel);
+        do{
+            opcion = prompt("Introduzca su nombre:", "");
+        }while(opcion == null || opcion == "");
+        nombre = opcion;
+        localStorage.setItem("lvl_"+nivel+"_nombre_"+pos,nombre);
+        localStorage.setItem("lvl_"+nivel+"_tiempo_"+pos, punt);
+        cargarPuntajes(nivel);
+    }
+}
+
+
+function correrPuntajes(pos,nivel){
+    for(var i = 5; i > pos; i--){
+        nom = localStorage.getItem("lvl_"+nivel+"_nombre_"+(i-1));
+        if(nom!= null){
+            tiem = localStorage.getItem("lvl_"+nivel+"_tiempo_"+(i-1));
+            
+            localStorage.setItem("lvl_"+nivel+"_nombre_"+i, nom);
+            localStorage.setItem("lvl_"+nivel+"_tiempo_"+i, tiem);
+        }  
+    }
 }

@@ -1,9 +1,20 @@
+@font-face{
+    font-family: "Gotham Bold";
+    src: url(../fuentes/GOTHAM-BOLD.TTF);
+}
+
+@font-face{
+    font-family: "Gotham Medium";
+    src: url(../fuentes/GOTHAM-MEDIUM.TTF);   
+}
+
 body{
-    background-color: #f8f8f8;
+    background-image: url(../img/fondo.png);
+    font-family: "Gotham Bold";
 }
 
 #niveles{
-    background-color: #eaeaea;
+    background-color: rgba(0,0,0,0.45);
     padding: 20px;
     text-align: center;
     margin: 10px 0px;
@@ -15,22 +26,24 @@ body{
 
 .lvl{
     display: inline-block; 
-    background-color: #cce5ff;
-    padding: 5px 10px;
+    background-color: rgb(160,160,160);
+    padding: 7px 12px;
     margin: 0px 10px;
-    font-family: Arial;
+    border-radius: 7px;
+}
+
+.lvl:hover{
+    background-color: rgb(200,200,200);
 }
 
 #cronometro{
-    margin: 10px 0px;
     text-align: center;
-    padding: 10px;
+    padding: 7px 0px;
 }
 
 #tablero{
     position: relative;
-    padding: 10px;
-
+    padding: 10px 0px;
 }
 
 .fila{
@@ -40,13 +53,15 @@ body{
 }
 
 .columna{
+    position: relative;
     display: inline-block;
-    background-color: #46a;
+    background-color: #010101;
     text-align: center;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 4px;
+    margin-right: 4px;
     height: 50px;
     width: 50px;
+    border-radius: 10px;
 }
 
 .columna img{
@@ -57,28 +72,23 @@ body{
 
 #segundos{
     font-size: 35px;
-    font-family: Verdana;
-    font-weight: 800;
     padding: 5px;
 }
 
 .boton{
     display:inline-block;
     position:relative;
-    padding: 0px 15px;
-    margin: 0px 10px;
+    background-color: #dadada;
+    padding: 0px 12px;
+    margin: 0px 5px;
+    border-radius: 7px;
+    width: 68px;
+
+    font-size: 14px;
 }
 
-.boton p{
-    font-family: Arial;
-}
-
-    
-.start{
-    background-color: #9ed9d1;
-}
-.reiniciar{
-    background-color: #9ed9d1;
+.boton:hover{
+    background-color: #bababa;
 }
 
 #cuentaregresiva{
@@ -95,7 +105,7 @@ body{
     margin: 0% 30% 0% 30%;
 
     opacity: 0.8;
-    color: black;
+    color: white;
     font-size: 100px;  
 }
 
@@ -104,6 +114,7 @@ body{
 }
 
 #puntajes{
+    background-color: rgba(85,85,85,0.39);
     text-align: center;
     margin-top: 15px;
     width: 500px;
@@ -113,11 +124,25 @@ body{
 }
 
 #puntajes table{
-    margin-left: auto;
+    margin-left: 122px;
     margin-right: auto;
     margin-bottom: 5px;
 }
 
+#puntajes table td:nth-child(1){
+    text-align: left;
+}
+
+td{
+    font-family: "Gotham Medium";
+    font-size: 15px;
+}
+
 .tiempos{
-    width: 200px;
+    width: 100px;
+}
+
+.nombres{
+    width: 166px;
+    text-align: left;
 }

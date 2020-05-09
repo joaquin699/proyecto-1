@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/app.css">
+    <link id="estilos" rel="stylesheet" href="css/app1.css">
 
      <!-- JavaScript -->
     <script type="text/javascript" src="js/app.js"></script>
@@ -13,21 +13,20 @@
     <title>Proyecto 1</title>
   </head>
   <body>
-    <h1>Proyecto 1</h1>
-
     <div id="niveles"> 
-        <h3>Niveles</h3>
-        <div class="lvl" onclick="seleccionarNivel(1)"> <b>Nivel 1</b></div>
-        <div class="lvl" onclick="seleccionarNivel(2)"> <b>Nivel 2</b></div>
+        <div>
+            <h3>Niveles</h3>
+            <div class="lvl" onclick="seleccionarNivel(1)"> <b>Nivel 1</b></div>
+            <div class="lvl" onclick="seleccionarNivel(2)"> <b>Nivel 2</b></div>
+        </div>
     </div>
-    
     <div id="cronometro">
         <div id="segundos">0.00</div>
         <div class="boton start" onclick="comenzarJuego()">
-            <p>Start</p>
+            <p>START</p>
         </div>
         <div class="boton reiniciar" onclick="reiniciar()">
-            <p>Restart</p>
+            <p>RESTART</p>
         </div>  
     </div>
     
@@ -36,7 +35,19 @@
     </div>
 
     <div id="puntajes">
-        Aqui se mostraran los 5 puntajes mas altos
+        <h3 id="titulo"> Puntajes mas altos: Nivel 1 </h3>
+        <table>
+        <tr>
+            <th class="nombres">Nombre</th><th class="tiempos">Tiempo</th>
+        </tr>
+        <tbody>
+            <tr><td id="p1"></td><td></td></tr>
+            <tr><td id="p2"></td><td></td></tr>
+            <tr><td id="p3"></td><td></td></tr>
+            <tr><td id="p4"></td><td></td></tr>
+            <tr><td id="p5"></td><td></td></tr>
+        </tbody>
+    </table>
     </div>
 
   </body>
