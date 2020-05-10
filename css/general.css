@@ -138,15 +138,22 @@ td{
 }
 
 .temas{
+    position: relative;
 	display: inline-block;
 	width: 20px;
 	height: 20px;
+    text-align: left;
+    margin-bottom: 15px;
 }
 
 #tema1{
+    position: absolute;
+    right: 5px;
 	background-color: grey;
 }
 
 #tema2{
+    position: absolute;
+    right: 30px;
 	background-color: blue;
 }

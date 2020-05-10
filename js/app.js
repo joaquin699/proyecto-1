@@ -27,7 +27,10 @@ var parejas_encontradas;
 
 
 function init(){
-
+    tema = localStorage.getItem("tema");
+    if(tema!=null){
+        cambiarTema(tema);
+    }
     dimension = 4;
     ultima_seleccionada = null;
 
@@ -179,6 +182,11 @@ function activarBotones(){
     for(var i = 0; i< niveles.length; i++){
         niveles[i].setAttribute("onClick","seleccionarNivel(" + (i+1) + ")");
     }
+
+    temas = document.getElementsByClassName("temas");
+    for (var i = 0; i < temas.length; i++) {
+        temas[i].setAttribute("onClick","cambiarTema(" + (i+1) + ")");
+    }
 }
 
 //Desactiva los botones de start, y niveles para el correcto funcionamiento del juego
@@ -188,6 +196,11 @@ function desactivarBotones(){
     niveles = document.getElementsByClassName("lvl");
     for(var i = 0; i< niveles.length; i++){
         niveles[i].setAttribute("onClick","");
+    }
+
+    temas = document.getElementsByClassName("temas");
+    for (var i = 0; i < temas.length; i++) {
+        temas[i].setAttribute("onClick","");
     }
 }
 
@@ -377,7 +390,6 @@ function cargarPuntajes(lvl){
     document.getElementById("titulo").innerHTML = " Puntajes mas altos: Nivel "+lvl+" ";
 }
 
-
 function guardarPuntaje(punt){
     var nivel = dimension/2 - 1;
     var pos = -1;
@@ -401,6 +413,10 @@ function guardarPuntaje(punt){
         correrPuntajes(pos,nivel);
         do{
             opcion = prompt("Introduzca su nombre:", "");
+            if(opcion != null && opcion.length>16){
+                alert("El nombre debe ser mas corto");
+                opcion = "";
+            }
         }while(opcion == null || opcion == "");
         nombre = opcion;
         localStorage.setItem("lvl_"+nivel+"_nombre_"+pos,nombre);
@@ -408,7 +424,6 @@ function guardarPuntaje(punt){
         cargarPuntajes(nivel);
     }
 }
-
 
 function correrPuntajes(pos,nivel){
     for(var i = 5; i > pos; i--){
@@ -420,4 +435,10 @@ function correrPuntajes(pos,nivel){
             localStorage.setItem("lvl_"+nivel+"_tiempo_"+i, tiem);
         }  
     }
+}
+
+
+function cambiarTema(tema){
+    document.getElementById("estilo").setAttribute("href","css/app"+tema+".css");
+    localStorage.setItem("tema",tema);
 }

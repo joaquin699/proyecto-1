@@ -1,9 +1,9 @@
 #niveles{
-    background-color: rgba(0,2,145,0.35);
+    background-color: rgba(0,2,145,0.4);
 }
 
 .lvl{
-    background-color: rgba(0,2,145,0.4);
+    background-color: rgba(0,2,145,0.3);
 }
 
 .lvl:hover{
@@ -11,7 +11,7 @@
 }
 
 .columna{
-    background-color: #000291;
+    background-color: rgba(0,2,145,1);
 }
 
 .boton{
