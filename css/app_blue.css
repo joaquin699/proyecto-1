@@ -1,0 +1,31 @@
+body{
+    background-image: url(../img/fondo_blue.png);
+}
+
+#niveles{
+    background-color: rgba(67, 121, 183,0.45);
+}
+
+.lvl{
+    background-color: rgba(110, 107, 133,0.7);
+}
+
+.lvl:hover{
+    background-color: rgba(110, 107, 133,0.9);
+}
+
+.columna{
+    background-color: rgba(10, 10, 10,0.8);  
+}
+
+.boton{
+    background-color: rgba(0, 170, 228,0.25);
+}
+
+.boton:hover{
+    background-color: rgba(0, 170, 228,0.5);
+}
+
+#puntajes{
+    background-color: rgba(176, 136, 156,0.42);
+}

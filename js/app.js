@@ -185,7 +185,9 @@ function activarBotones(){
 
     temas = document.getElementsByClassName("temas");
     for (var i = 0; i < temas.length; i++) {
-        temas[i].setAttribute("onClick","cambiarTema(" + (i+1) + ")");
+        var id_tema = temas[i].id;
+        var color = id_tema.substring(2,id_tema.length);
+        temas[i].setAttribute("onClick","cambiarTema(" + color + ")");
     }
 }
 
@@ -439,6 +441,6 @@ function correrPuntajes(pos,nivel){
 
 
 function cambiarTema(tema){
-    document.getElementById("estilo").setAttribute("href","css/app"+tema+".css");
+    document.getElementById("estilo").setAttribute("href","css/app_"+tema+".css");
     localStorage.setItem("tema",tema);
 }

@@ -9,7 +9,6 @@
 }
 
 body{
-    background-image: url(../img/fondo.png);
     font-family: "Gotham Bold";
 }
 
@@ -21,7 +20,6 @@ body{
 
 #niveles h3{
     margin-top: 7px;
-
 }
 
 .lvl{
@@ -123,13 +121,18 @@ body{
     text-align: left;
 }
 
+#puntajes table td:nth-child(2){
+    text-align: right;
+}
+
 td{
     font-family: "Gotham Medium";
     font-size: 15px;
 }
 
 .tiempos{
-    width: 100px;
+    width: 82px;
+    text-align: right;
 }
 
 .nombres{
@@ -146,14 +149,14 @@ td{
     margin-bottom: 15px;
 }
 
-#tema1{
+#t_blue{
     position: absolute;
     right: 5px;
-	background-color: grey;
+    background-color: rgba(3, 73, 252,0.8);
 }
 
-#tema2{
+#t_grey{
     position: absolute;
     right: 30px;
-	background-color: blue;
+    background-color: grey;
 }
