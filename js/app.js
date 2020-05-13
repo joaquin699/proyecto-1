@@ -187,7 +187,7 @@ function activarBotones(){
     for (var i = 0; i < temas.length; i++) {
         var id_tema = temas[i].id;
         var color = id_tema.substring(2,id_tema.length);
-        temas[i].setAttribute("onClick","cambiarTema(" + color + ")");
+        temas[i].setAttribute("onClick","cambiarTema('" + color + "')");
     }
 }
 
@@ -364,8 +364,6 @@ function reiniciar(){
     comparando = false;
 
     parejas_encontradas = 0;
-
-    alert("reinicie");
 }
 
 //Se encarga de mostrar en pantalla los puntajes del nivel lvl
