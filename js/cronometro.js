@@ -35,7 +35,7 @@ function pararCronometro(){
     clearInterval(id_interval);
 }
 
-//Hace un conteo regresivo de 5 segundos para que el jugador vea las imagenes y trate de memorizarlas
+//Inicia un conteo regresivo de 5 segundos para que el jugador vea las imagenes y trate de memorizarlas
 function comenzarConteo(){
     conteo_regresivo = 5;
     id_regresivo = setInterval(descontar,1000);

@@ -1,5 +1,5 @@
 //Se encarga de mostrar en pantalla los puntajes del nivel lvl
-function cargarPuntajes(lvl){
+function cargarTiempos(lvl){
     var puntaje;
     var nombre;
     var tiempo;
@@ -22,17 +22,18 @@ function cargarPuntajes(lvl){
     document.getElementById("titulo").innerHTML = " Puntajes mas altos: Nivel "+lvl+" ";
 }
 
-function guardarPuntaje(punt,dim){
+//Guarda, si corresponde, el tiempo en LocalStorage
+function guardarTiempo(tiemp,dim){
     var nivel = parseInt((dim/2 - 1),10);
     var pos;
 
-    pos = compararPuntajes(nivel,punt);
+    pos = compararTiempos(nivel,tiemp);
 
     if(pos > 0){
         var nombre = "";
         var opcion;
         
-        correrPuntajes(pos,nivel);
+        correrTiempos(pos,nivel);
         
         do{
             opcion = prompt("Introduzca su nombre:", "");
@@ -43,19 +44,20 @@ function guardarPuntaje(punt,dim){
         }while(opcion == null || opcion == "");
         nombre = opcion;
         localStorage.setItem("lvl_"+nivel+"_nombre_"+pos,nombre);
-        localStorage.setItem("lvl_"+nivel+"_tiempo_"+pos, punt);
-        document.getElementById("segundos").innerHTML = punt;
-        cargarPuntajes(nivel);
+        localStorage.setItem("lvl_"+nivel+"_tiempo_"+pos, tiemp);
+        document.getElementById("segundos").innerHTML = tiemp;
+        cargarTiempos(nivel);
     }
 }
 
-function compararPuntajes(nivel,punt){
-    var aux;
+//Compara el tiempo pasado como parametro con los tiempos almacenados en localStorage
+function compararTiempos(nivel,tiemp){
+    var tiempo_almacenado;
     var pos = -1;
     for (var i = 5; i >= 1; i--) {
-        aux = localStorage.getItem("lvl_"+nivel+"_tiempo_"+i);
-        if(aux != null){
-            if(punt < aux){
+        tiempo_almacenado = localStorage.getItem("lvl_"+nivel+"_tiempo_"+i);
+        if(tiempo_almacenado != null){
+            if(tiemp < tiempo_almacenado){
                 pos = i;
             }
         }
@@ -66,14 +68,15 @@ function compararPuntajes(nivel,punt){
     return pos;
 }
 
-function correrPuntajes(pos,nivel){
+//Desplaza los tiempos almacenados una posicion mas abajo a partir de pos.
+function correrTiempos(pos,nivel){
     for(var i = 5; i > pos; i--){
         nom = localStorage.getItem("lvl_"+nivel+"_nombre_"+(i-1));
         if(nom!= null){
-            tiem = localStorage.getItem("lvl_"+nivel+"_tiempo_"+(i-1));
+            tiemp = localStorage.getItem("lvl_"+nivel+"_tiempo_"+(i-1));
             
             localStorage.setItem("lvl_"+nivel+"_nombre_"+i, nom);
-            localStorage.setItem("lvl_"+nivel+"_tiempo_"+i, tiem);
+            localStorage.setItem("lvl_"+nivel+"_tiempo_"+i, tiemp);
         }  
     }
 }

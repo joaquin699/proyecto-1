@@ -13,7 +13,7 @@ function init(){
 
     crearTablero();
 
-    cargarPuntajes(1);
+    cargarTiempos(1);
 }
 
 function iniciarVariables(){
@@ -35,7 +35,7 @@ function iniciarVariables(){
     comparando = false;
 }
 
-
+//Funcion asociada a los botones nivel i.
 function seleccionarNivel(nivel){
     dimension = 2*(nivel + 1);
     tablero = document.getElementById("tablero");
@@ -46,7 +46,7 @@ function seleccionarNivel(nivel){
     
     crearTablero();
     
-    cargarPuntajes(nivel);
+    cargarTiempos(nivel);
 }
 
 //Elimina todos los elementos HTML del subarbol con raiz element
@@ -60,7 +60,7 @@ function vaciarTablero(element){
 }
 
 //Funcion asociada al boton start
-//Se encarga de iniciar el juego
+//Se encarga de iniciar la partida
 function comenzarJuego(){
     tablero = document.getElementById("tablero");
 
@@ -78,7 +78,8 @@ function comenzarJuego(){
 }
     
 //Funcion asociada al boton restart
-//Reinicia el juego completo
+//Reinicia el juego.
+//Mantiene el ultimo nivel seleccionado.
 function reiniciar(){
     if(id_interval != null){
         clearInterval(id_interval);    
@@ -90,11 +91,13 @@ function reiniciar(){
         tablero.removeChild(document.getElementById("cuentaregresiva"));
     }
 
+    iniciarVariables();
+
     activarBotones();
 
     ocultarImagenes();
 
     imagenesTablero();
-    
+
     document.getElementById("segundos").innerHTML="0.00";    
 }

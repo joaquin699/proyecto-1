@@ -8,7 +8,6 @@ var imagenes;
 var img_tablero;
 
 
-
 //Inicializa la variable imagenes con todas las imagenes de la carpeta img
 function cargarImagenes(){
     imagenes = [];
@@ -134,6 +133,7 @@ function desactivarBotones(){
     }
 }
 
+//Cambia el estilo de la pagina
 function cambiarTema(tema){
     document.getElementById("estilo").setAttribute("href","css/app_"+tema+".css");
     localStorage.setItem("tema",tema);

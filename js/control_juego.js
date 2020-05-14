@@ -6,7 +6,7 @@ var comparando = false;
 
 var parejas_encontradas;
 
-//Se encarga de manejar las acciones asociadas a la seleccion de una pieza del tablero.
+//Maneja las acciones de seleccionar una pieza del tablero
 function operar(element){
     var img_aux;
     
@@ -73,7 +73,7 @@ function mostrarOcultar(div1, div2, iguales){
     comparando = false;
 }
 
-//Termina el juego parando el cronometro
+//Se encarga de finalizar la partida
 function terminar(){
     var milAux = milesimas;
     pararCronometro();
@@ -81,5 +81,5 @@ function terminar(){
     if (milesimas < 10){
         milAux="0" + milesimas;
     }
-    guardarPuntaje(segundos+"."+milAux,dimension);
+    guardarTiempo(segundos+"."+milAux,dimension);
 }
