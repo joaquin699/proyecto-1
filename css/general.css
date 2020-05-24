@@ -27,6 +27,7 @@ body{
     padding: 7px 12px;
     margin: 0px 10px;
     border-radius: 7px;
+    cursor: pointer;
 }
 
 #cronometro{
@@ -76,6 +77,7 @@ body{
     width: 68px;
 
     font-size: 14px;
+    cursor: pointer;
 }
 
 
@@ -153,10 +155,12 @@ td{
     position: absolute;
     right: 5px;
     background-color: rgba(3, 73, 252,0.8);
+    border-radius: 6px;
 }
 
 #t_grey{
     position: absolute;
     right: 30px;
     background-color: grey;
+    border-radius: 6px;
 }

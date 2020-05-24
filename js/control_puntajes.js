@@ -1,21 +1,25 @@
 //Se encarga de mostrar en pantalla los puntajes del nivel lvl
 function cargarTiempos(lvl){
-    var puntaje;
+    var puntaje_html;
     var nombre;
     var tiempo;
 
     for(var i = 1; i<=5; i++){
-        puntaje = document.getElementById("p"+i);
+        puntaje_html = document.getElementById("p"+i);
         
-        nombre = localStorage.getItem("lvl_"+lvl+"_nombre_"+i);
-        if(nombre != null){
-            tiempo = localStorage.getItem("lvl_"+lvl+"_tiempo_"+i);
-            puntaje.innerHTML = i + ". " + nombre ;
-            puntaje.nextSibling.innerHTML = tiempo + "\"";
+        puntaje_almacenado = localStorage.getItem("lvl_"+lvl+"_puntaje_"+i);
+        if(puntaje_almacenado != null){
+            puntaje = JSON.parse(puntaje_almacenado);
+
+            nombre = puntaje.nombre
+            tiempo = puntaje.tiempo;
+            
+            puntaje_html.innerHTML = i + ". " + nombre ;
+            puntaje_html.nextSibling.innerHTML = tiempo + "\"";
         }
         else{
-            puntaje.innerHTML = i + ". ";
-            puntaje.nextSibling.innerHTML = "";
+            puntaje_html.innerHTML = i + ". ";
+            puntaje_html.nextSibling.innerHTML = "";
         }
     }
 
@@ -43,8 +47,9 @@ function guardarTiempo(tiemp,dim){
             }
         }while(opcion == null || opcion == "");
         nombre = opcion;
-        localStorage.setItem("lvl_"+nivel+"_nombre_"+pos,nombre);
-        localStorage.setItem("lvl_"+nivel+"_tiempo_"+pos, tiemp);
+        puntaje_a_guardar = {"nombre":nombre, "tiempo":tiemp};
+
+        localStorage.setItem("lvl_"+nivel+"_puntaje_"+pos,JSON.stringify(puntaje_a_guardar));
         document.getElementById("segundos").innerHTML = tiemp;
         cargarTiempos(nivel);
     }
@@ -55,8 +60,9 @@ function compararTiempos(nivel,tiemp){
     var tiempo_almacenado;
     var pos = -1;
     for (var i = 5; i >= 1; i--) {
-        tiempo_almacenado = localStorage.getItem("lvl_"+nivel+"_tiempo_"+i);
-        if(tiempo_almacenado != null){
+        puntaje_almacenado = localStorage.getItem("lvl_"+nivel+"_puntaje_"+i);
+        if(puntaje_almacenado != null){
+            tiempo_almacenado = (JSON.parse(puntaje_almacenado)).tiempo;
             if(tiemp < tiempo_almacenado){
                 pos = i;
             }
@@ -71,12 +77,15 @@ function compararTiempos(nivel,tiemp){
 //Desplaza los tiempos almacenados una posicion mas abajo a partir de pos.
 function correrTiempos(pos,nivel){
     for(var i = 5; i > pos; i--){
-        nom = localStorage.getItem("lvl_"+nivel+"_nombre_"+(i-1));
-        if(nom!= null){
-            tiemp = localStorage.getItem("lvl_"+nivel+"_tiempo_"+(i-1));
+        puntaje_almacenado = localStorage.getItem("lvl_"+nivel+"_puntaje_"+(i-1));
+        if(puntaje_almacenado!= null){
+            puntaje = JSON.parse(puntaje_almacenado)
+            nom = puntaje.nombre;
+            tiemp = puntaje.tiempo;
             
-            localStorage.setItem("lvl_"+nivel+"_nombre_"+i, nom);
-            localStorage.setItem("lvl_"+nivel+"_tiempo_"+i, tiemp);
+            puntaje_a_guardar = {'nombre':nom,'tiempo':tiemp};
+
+            localStorage.setItem("lvl_"+nivel+"_puntaje_"+i, JSON.stringify(puntaje_a_guardar));
         }  
     }
 }
