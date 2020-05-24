@@ -97,6 +97,8 @@ function reiniciar(){
 
     ocultarImagenes();
 
+    desactivarOyentesBotonesJuego();
+
     imagenesTablero();
 
     document.getElementById("segundos").innerHTML="0.00";    

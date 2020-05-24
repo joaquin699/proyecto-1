@@ -103,6 +103,16 @@ function activarOyentesBotonesJuego(){
     }
 }
 
+//Desactiva los botones del tablero de Juego
+function desactivarOyentesBotonesJuego(){
+    for (var i = 0; i < dimension; i++) {
+        for (var j = 0; j < dimension; j++) {
+            element = document.getElementById("f"+i+"c"+j);
+            element.setAttribute("onClick","");
+        }
+    }
+}
+
 //Activa los botones start, restart, Nivel i, cambio de tema
 function activarBotones(){
     (document.getElementsByClassName("boton start")[0]).setAttribute("onClick","comenzarJuego()");
